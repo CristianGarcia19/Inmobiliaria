@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--custom-->
+    <link rel="stylesheet" href="../css/bootstrap-custom.css">
+    <!--css-->
+    <link rel="stylesheet" href="/public/css/style.css">
+    <!--favicon-->
+    <link rel="shortcut icon" href="../img/logodash.png" type="image/x-icon">
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-primary">
+    <!----------------------- Main Container -------------------------->
+    <div class="container d-flex justify-content-center align-items-center min-vh-100 container-form">
+        <!----------------------- Login Container -------------------------->
+        <div class="row border rounded-3 p-3 bg-white shadow box-area d-flex justify-content-center align-items-center container container-form">
+            <img src="../img/logodash.png" alt="logo" class="logo-form">
+            <h1 class="text-center tittle-form">Bienvenido</h1>
+            <form>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre:</label>
+                  <input type="text" class="form-control" id="correo">
+                  <label for="apellidoP" class="form-label">Primer apellido:</label>
+                  <input type="text" class="form-control" id="correo">
+                  <label for="apellidoM" class="form-label">Segundo apellido:</label>
+                  <input type="text" class="form-control" id="correo">
+                  <label for="correo" class="form-label">Correo:</label>
+                  <input type="email" class="form-control" id="correo">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control input-focus-primary" id="password">
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info text-white">Registrar</button>                    
+                </div>
+                
+              </form>
+        </div>
+          
+    </div>
+    
+    <!--js dashboard-->
+    <script src="../js/dashboard.js"></script>
+    <!--jd bootstrap-->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

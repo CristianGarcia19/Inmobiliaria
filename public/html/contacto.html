@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contacto</title>
+        <!--icons-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!--custom-->
+        <link rel="stylesheet" href="../css/bootstrap-custom.css">
+        <!--css-->
+        <link rel="stylesheet" href="/public/css/style.css">
+        <!--favicon-->
+        <link rel="shortcut icon" href="../img/logodash.png" type="image/x-icon">
+        <!--fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <!-- Header -->
+    <header class="bg-primary py-3 text-white">
+        <div class="container d-flex justify-content-between align-items-center">
+        
+            <!-- Logo y Nombre -->
+            <div class="d-flex align-items-center">
+                <a href="../html/index.html" class=""><img src="../img/logodash.png" alt="logo-dashboard" class="me-2 logo-dashboard"></a>
+                <a href="../html/index.html" class="nav-linkk text-white tittle-header">Inmoweb</a>
+            </div>
+            
+            <!-- Menú de Navegación -->
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../html/index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Inmuebles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white me-2" href="../html/contacto.html">Contacto</a>
+                    </li>
+                    <a href="../html/login.html"><button class="btn btn-info text-white btn-ingresar">Ingresar</button></a>
+                </ul>
+            </nav>        
+        </div>
+    </header>
+
+    <!-- Carrousel con sección de Contacto -->
+    <div id="carouselExample" class="carousel slide position-relative" data-bs-ride="carousel">
+        <div class="search-bar-container py-5">
+            <h1 class="text-white text-center mb-5">Contacto</h1>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('../img/contacto.jpg');"></div>
+        </div>
+    </div>
+
+    <!-- Formulario de Contacto -->
+    <div class="container my-5">
+        <div class="contact-form contact-form-custom text-white p-4 rounded">
+            <!-- Contenido del formulario -->
+            <form>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3"> <!-- Añadido mb-3 para margen inferior -->
+                        <label for="name" class="text-white">Nombre Completo</label>
+                        <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre completo">
+                    </div>
+                    <div class="form-group col-md-6 mb-3"> <!-- Añadido mb-3 para margen inferior -->
+                        <label for="department" class="text-white">Dependencia</label>
+                        <select class="form-control" id="department">
+                            <option>Seleccione</option>
+                            <option>Ventas</option>
+                            <option>Soporte</option>
+                            <option>Administración</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6 mb-3"> <!-- Añadido mb-3 para margen inferior -->
+                        <label for="email" class="text-white">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
+                    </div>
+                    <div class="form-group col-md-6 mb-3"> <!-- Añadido mb-3 para margen inferior -->
+                        <label for="message" class="text-white">Mensaje</label>
+                        <textarea class="form-control" id="message" rows="3" placeholder="Escribe tu mensaje"></textarea>
+                    </div>
+                    <div class="form-group col-md-6 mb-3"> <!-- Añadido mb-3 para margen inferior -->
+                        <label for="phone" class="text-white">Teléfono de contacto</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Ingresa tu teléfono de contacto">
+                    </div>
+                    <div class="form-group col-md-6 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sección de Puntos de Atención al Cliente -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="section-title">Puntos de Atención al Cliente</h2>
+                <p class="section-subtitle">
+                    Nuestro objetivo es ofrecer un excelente servicio, respaldo, transparencia y comercializar ágilmente su propiedad en materia de Arriendos, Ventas y Avalúos.
+                </p>
+            </div>
+        </div> <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="fw-bold">Parque Banderas La Esperanza</h4>
+                <div class="contact-info">
+                    <p>
+                        <i class="bi bi-geo-alt-fill"></i> Manzana 15 Casa 15 Piso 1<br>
+                        <i class="bi bi-telephone-fill"></i> +57 3182348970<br>
+                    </p>
+                    <p>
+                        <strong>Horarios de Atención</strong><br>
+                        <i class="fas fa-clock"></i> Lunes a Viernes<br>
+                        8:00 a.m a 1:00 p.m<br>
+                        2:00 p.m a 6:00 p.m
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 map">
+                <img src="/public/img/mapa.jpg" alt="Mapa de ubicación" width="400" height="300">
+              </div>
+        </div>
+    </div>
+    <!--footer-->
+    <footer class="bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 d-flex flex-column align-items-start px-5 py-5">
+                    <p class="fw-bold">Redes sociales</p>
+                    <span class="d-flex align-items-center"><i class="bi bi-facebook me-2"></i>Facebookfalso.com</span>
+                    <span class="d-flex align-items-center"><i class="bi bi-instagram me-2"></i>Instagram falso</span>
+                    <span class="d-flex align-items-center"><i class="bi bi-twitter-x me-2"></i>Twitter falso</span>
+                </div>
+                <div class="col-md-4 d-flex flex-column align-items-start px-5 py-5">
+                    <p class="fw-bold">Contacto</p>
+                    <span class="d-flex align-items-center"><i class="bi bi-envelope me-2"></i>inmoweb123@gmail.com</span>
+                    <span class="d-flex align-items-center"><i class="bi bi-phone me-2"></i>+57 3182348970</span>
+                </div>
+                <div class="col-md-4 d-flex flex-column align-items-start px-5 py-5">
+                    <p class="fw-bold">Dirección</p>
+                    <span class="d-flex align-items-center"><i class="bi bi-geo-alt me-2"></i>Manzana 15 Casa 9 Barrio la esperanza, Girardot - Cundinamarca</span>
+                </div>
+                
+            </div>
+            <div class="row text-center">
+                <p>&copy; 2024 Inmoweb. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
