@@ -1,9 +1,18 @@
 <?php
-    //autenticar usuario
+    //auntenticar el usuario
+    require('../config/Conexion.php');
+    require('../controllers/autenticacion.php');
 
+    // Crear una instancia de la clase Conectar
+    $conectar = new Conectar();
+    $conexion = $conectar->obtenerConexion();
+
+    
+
+   
     include('modules/head.php');
-    require_once('../models/Conexion.php');
 ?>
+
 <body class="bg-primary">
     <!----------------------- Main Container -------------------------->
     <div class="container d-flex justify-content-center align-items-center min-vh-100 container-form">
@@ -12,14 +21,14 @@
             <img src="../public/img/logodash.png" alt="logo" class="logo-form">
             <h1 class="text-center tittle-form">Bienvenido</h1>
             <!--Inicio de formulario-->
-            <form method="POST" >
+            <form action="../controllers/autenticacion.php" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Correo:</label>
-                  <input type="email" class="form-control" id="email" name="email">
+                  <label for="correo" class="form-label">Correo:</label>
+                  <input type="email" class="form-control" id="correo" name="correo" required>
                 </div>
                 <div class="mb-3">
-                  <label for="password" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control input-focus-primary" id="password" name="password">
+                  <label for="contraseña" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control input-focus-primary" id="contraseña" name="contraseña" required>
                 </div>
                 
                 <div class="text-center">
@@ -33,13 +42,10 @@
                         <a href="../html/registro.html" class="mx-3 text-account">Registrate aqui</a>
                     </div>
                 </div>
-              </form>
+            </form>
         </div>
           
     </div>
     
-    <?php
-        include('../views/modules/js.php');
-    ?>
 </body>
 </html>

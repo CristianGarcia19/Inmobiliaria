@@ -1,11 +1,57 @@
-<?php
-    include('views/modules/head.php');
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inmoweb</title>
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--custom-->
+    <link rel="stylesheet" href="./public/css/bootstrap-custom.css">
+    <!--css-->
+    <link rel="stylesheet" href="./public/css/style.css">
+    <!--favicon-->
+    <link rel="shortcut icon" href="./public/img/logodash.png" type="image/x-icon">
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
 <body>
     <!-- Header -->
-    <?php
-        include('views/modules/header.php');
-    ?>
+    <header class="bg-primary py-3 text-white">
+        <div class="container d-flex justify-content-between align-items-center">
+        
+            <!-- Logo y Nombre -->
+            <div class="d-flex align-items-center">
+                <a href="./public/html/index.html" class=""><img src="./public/img/logodash.png" alt="logo-dashboard" class="me-2 logo-dashboard"></a>
+                <a href="./public/html/index.html" class="nav-linkk text-white tittle-header">Inmoweb</a>
+            </div>
+            
+            <!-- Menú de Navegación -->
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./public/html/index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Inmuebles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white me-2" href="./public/html/contacto.html">Contacto</a>
+                    </li>
+                    <a href="./views/login.php"><button class="btn btn-info text-white btn-ingresar">Ingresar</button></a>
+                </ul>
+            </nav>        
+        </div>
+    </header>
 
     <!--banner-->
     <div id="carouselExample" class="carousel slide position-relative" data-bs-ride="carousel">
@@ -238,11 +284,36 @@
     </div>
   
     <!--footer-->
-    <?php
-        include('views/modules/footer.php');
-        include('views/modules/js.php');
-    ?>
+    <footer class="bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 d-flex flex-column align-items-start px-5 py-5">
+                    <p class="fw-bold">Redes sociales</p>
+                    <span class="d-flex align-items-center"><i class="bi bi-facebook me-2"></i>Facebookfalso.com</span>
+                    <span class="d-flex align-items-center"><i class="bi bi-instagram me-2"></i>Instagram falso</span>
+                    <span class="d-flex align-items-center"><i class="bi bi-twitter-x me-2"></i>Twitter falso</span>
+                </div>
+                <div class="col-md-4 d-flex flex-column align-items-start px-5 py-5">
+                    <p class="fw-bold">Contacto</p>
+                    <span class="d-flex align-items-center"><i class="bi bi-envelope me-2"></i>inmoweb123@gmail.com</span>
+                    <span class="d-flex align-items-center"><i class="bi bi-phone me-2"></i>+57 3182348970</span>
+                </div>
+                <div class="col-md-4 d-flex flex-column align-items-start px-5 py-5">
+                    <p class="fw-bold">Dirección</p>
+                    <span class="d-flex align-items-center"><i class="bi bi-geo-alt me-2"></i>Manzana 15 Casa 9 Barrio la esperanza, Girardot - Cundinamarca</span>
+                </div>
+                
+            </div>
+            <div class="row text-center">
+                <p>&copy; 2024 Inmoweb. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
+    <!--js-->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/dashboard.js"></script>
     
 </body>
 </html>
