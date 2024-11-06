@@ -179,7 +179,7 @@ a.sidebar-link:hover {
 
 /*cards*/
 .card{
-    max-width: 380px;  
+    max-width: 340px;  
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
 
 }
@@ -194,7 +194,6 @@ a.sidebar-link:hover {
 }
 .card-img-top {
     height: 300px; /* Cambia la altura de la imagen*/
-    
     object-fit: cover; /* Recorta la imagen para que llene el espacio */
 }
 
@@ -206,19 +205,12 @@ a.sidebar-link:hover {
     
 }
 
-
 .icon-flecha{
     color: white;
     background-color: #0E2238;
     padding: 15px;
     border-radius: 50%;
 }
-
-
-
-
-
-
 
 .icon-servicios{
     font-size: 50px;
@@ -228,9 +220,11 @@ a.sidebar-link:hover {
     border-radius: 100%;
 }
 
-.container-servicios{
-    
-}
+/*prueba de nuevos estilos de carousel*/
+
+
+
+
 
 
 

@@ -24,11 +24,11 @@
             <form action="../controllers/autenticacion.php" method="POST">
                 <div class="mb-3">
                   <label for="correo" class="form-label">Correo:</label>
-                  <input type="email" class="form-control" id="correo" name="correo" required>
+                  <input type="email" class="form-control" id="correo" name="correo" >
                 </div>
                 <div class="mb-3">
                   <label for="contraseña" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control input-focus-primary" id="contraseña" name="contraseña" required>
+                  <input type="password" class="form-control input-focus-primary" id="contraseña" name="contraseña" >
                 </div>
                 
                 <div class="text-center">
@@ -46,6 +46,24 @@
         </div>
           
     </div>
+
+
+    <?php
+        include('../views/modules/js.php');
+        session_start();
+        if (isset($_SESSION['error'])) {
+            echo "<script>
+                    Swal.fire({
+                    title: 'Error!',
+                    text: '{$_SESSION['error']}',
+                    icon: 'error',
+                    confirmButtonText: 'Cerrar'
+                    });
+                </script>";
+            unset($_SESSION['error']); // Elimina el mensaje después de mostrarlo
+        }
+    ?>
+
     
 </body>
 </html>
