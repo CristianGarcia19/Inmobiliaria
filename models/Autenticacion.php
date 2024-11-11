@@ -28,6 +28,7 @@
                         $_SESSION["nombre"]=$resultado["nombre"];
                         $_SESSION["apellidoP"]=$resultado["apellidoP"];
                         $_SESSION["apellidoM"]=$resultado["apellidoM"];
+                        $_SESSION["sexo"]=$resultado["sexo"];
                         $_SESSION["correo"]=$resultado["correo"];
                         $_SESSION["contraseña"]=$resultado["contraseña"];                        
                         $_SESSION["telefono"]=$resultado["telefono"];

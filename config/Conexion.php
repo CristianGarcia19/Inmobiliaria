@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //Clase conectar
     class Conectar {
         private $host = "localhost";

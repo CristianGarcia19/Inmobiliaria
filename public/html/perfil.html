@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--custom-->
+    <link rel="stylesheet" href="../css/bootstrap-custom.css">
+    <!--css-->
+    <link rel="stylesheet" href="/public/css/style.css">
+    <!--favicon-->
+    <link rel="shortcut icon" href="../img/logodash.png" type="image/x-icon">
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar-toggle bg-primary p-0">
+            <div class="sidebar-logo d-flex align-items-center justify-content-center px-0 py-3">
+                <div class="sidebar-logo p-0 mx-2">
+                    <img src="../img/logodash.png" alt="logo-dashboard" class="logo-dashboard">
+                </div>
+                <a href="#">Inmoweb</a>
+            </div>
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav p-0">
+                <li class="sidebar-header">
+                    Configuración
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-person"></i>
+                        <span>Perfil</span>
+                    </a>
+                </li>
+                
+                <li class="sidebar-header">
+                    Paginas
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#auth" aria-expanded="true" aria-controls="auth">
+                        <i class="bi bi-shield-check"></i>
+                        <span>Autenticación</span>
+                    </a>
+                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Login</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Registro</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-bell"></i>
+                        <span>Notification</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-gear"></i>
+                        <span>Setting</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Sidebar Navigation Ends -->
+            <div class="sidebar-footer pb-2">
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-box-arrow-in-left"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </div>
+        </aside>
+        <!-- Sidebar Ends -->
+        <!-- Main Component -->
+        <div class="main">
+            <nav class="navbar navbar-expand">
+                <button class="toggler-btn" type="button">
+                    <i class="bi bi-list"></i>
+                </button>
+                
+            </nav>
+            <main class="p-3">
+                <div class="container-fluid">
+                    <div class="mb-3 text-center">
+                        <h3>Perfil</h3>
+                    </div>
+                </div>
+
+                  <!--diseño personalizado-->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <div class="form-group">
+                          <label for="nombre">Nombre</label>
+                          <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <div class="form-group">
+                          <label for="apellidoP">Apellido Paterno</label>
+                          <input type="text" class="form-control" name="apellidoP" id="apellidoP" placeholder="Ingrese su nombre">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <div class="form-group">
+                          <label for="apellidoM">Apellido Materno</label>
+                          <input type="text" class="form-control" name="apellidoM" id="apellidoM" placeholder="Ingrese su nombre">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <label>Sexo</label>
+                        <select class="form-select" name="sexo" id="sexo">
+                          <option label="Seleccione" class="dropdown-toggle"></option>
+                          <option value="f">Femenino</option>
+                          <option value="m">Masculino</option>
+                        </select>
+                      </div>
+                    </div>
+                  
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-3">
+                        <div class="form-group">
+                          <label for="correo">Correo Electronico</label>
+                          <input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese su correo">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <div class="form-group">
+                          <label for="contraseña">Contraseña</label>
+                          <input type="password" class="form-control" name="contraseña" id="contraseña" placeholder="Admin">
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+                        <div class="form-group">
+                          <label for="telefono">Telefono</label>
+                          <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Ingrese su telefono">
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="text-center d-grid gap-2 col-2 mx-auto">
+                      <button class="btn btn-primary my-3">Editar</button>
+                    </div>
+                  </div>
+                  
+            </main>
+        </div>
+    </div>
+
+    <!--js dashboard-->
+    <script src="../js/dashboard.js"></script>
+    <!--jd bootstrap-->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
