@@ -38,6 +38,7 @@
             </nav>
             <main class="p-3">
                 <!--Contenido de la pagina-->
+                
             </main>
         </div>
     </div>

@@ -3,7 +3,7 @@
                 <div class="sidebar-logo p-0 mx-2">
                     <img src="../public/img/logodash.png" alt="logo-dashboard" class="logo-dashboard">
                 </div>
-                <a href="#">Inmoweb</a>
+                <a href="../views/dashboard.php">Inmoweb</a>
             </div>
             <!-- Sidebar Navigation -->
             <ul class="sidebar-nav p-0">
@@ -22,17 +22,17 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#auth" aria-expanded="true" aria-controls="auth">
+                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                         <i class="bi bi-shield-check"></i>
-                        <span>Autenticación</span>
+                        <span>Administración</span>
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Login</a>
+                            <a href="../views/admAgentes.php" class="sidebar-link">
+                            <i class="bi bi-people"></i>    
+                            Lista de agentes</a>
                         </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Registro</a>
-                        </li>
+                        
                     </ul>
                 </li>
                 <li class="sidebar-item">

@@ -46,7 +46,7 @@ a {
 
 .navbar {
     padding: 10px 10px;
-    border-bottom: 1px solid #b3a8a8;
+    border-bottom: 1px solid #0E2238;
 }
 
 .sidebar-nav {
@@ -220,16 +220,20 @@ a.sidebar-link:hover {
     border-radius: 100%;
 }
 
-/*prueba de nuevos estilos de carousel*/
+/*estilos perfil*/
+
+.container-perfil{
+    box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    padding: 15px 15px;
+}
 
 
 
 
-
-
-
-
-
+table th, table td {
+    vertical-align: middle; /* Centra el contenido verticalmente */
+}
 
 
 

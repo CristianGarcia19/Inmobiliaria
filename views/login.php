@@ -50,7 +50,6 @@
 
     <?php
         include('../views/modules/js.php');
-        session_start();
         if (isset($_SESSION['error'])) {
             echo "<script>
                     Swal.fire({
