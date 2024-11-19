@@ -7,6 +7,12 @@
             </div>
             <!-- Sidebar Navigation -->
             <ul class="sidebar-nav p-0">
+                <li class="sidebar-item">
+                    <a href="../views/dashboard.php" class="sidebar-link">
+                        <i class="bi bi-house-door"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
                 <li class="sidebar-header">
                     Configuración
                 </li>
@@ -23,30 +29,23 @@
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                         data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <i class="bi bi-shield-check"></i>
-                        <span>Administración</span>
+                        <i class="bi bi-person-video2"></i>
+                        <span>Agentes</span>
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="../views/admAgentes.php" class="sidebar-link">
+                            <a href="../views/agentes.php" class="sidebar-link">
                             <i class="bi bi-people"></i>    
                             Lista de agentes</a>
                         </li>
-                        
+                        <li class="sidebar-item">
+                            <a href="../views/#.php" class="sidebar-link">
+                            <i class="bi bi-person-add"></i>   
+                            Crear agentes</a>
+                        </li>
                     </ul>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="bi bi-bell"></i>
-                        <span>Notification</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="bi bi-gear"></i>
-                        <span>Setting</span>
-                    </a>
-                </li>
+                
             </ul>
             <!-- Sidebar Navigation Ends -->
             <div class="sidebar-footer pb-2">

@@ -1,0 +1,55 @@
+/*Tarjeta 1*/
+.bg-card-1{
+    background-color: #0d6efd;
+}
+
+.btn-1{
+    background-color: #0A58CA;
+}
+
+.btn-1:hover{
+    background-color: #084298;
+}
+
+/*Tarjeta 2*/
+.bg-card-2{
+    background-color: #198754; 
+}
+
+.btn-2{
+    background-color: #146C43;
+}
+
+.btn-2:hover{
+    background-color: #0F5132;
+}
+
+/*Tarjeta 3*/
+.bg-card-3{
+    background-color: #FFC107; 
+}
+
+.btn-3{
+    background-color: #CC9A06;
+}
+
+.btn-3:hover{
+    background-color: #997404;
+}
+
+/*Tarjeta 4*/
+.bg-card-4{
+    background-color: #6610f2; 
+}
+
+.btn-4{
+    background-color: #520DC2;
+}
+
+.btn-4:hover{
+    background-color: #3D0A91;
+}
+
+.card{
+    min-height: 160px;
+}

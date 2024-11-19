@@ -45,5 +45,26 @@
             $stmt->bind_param("sssssssi", $nombre, $apellidoP, $apellidoM, $sexo, $telefono, $contraseña, $correo, $id_agente);
             return $stmt->execute();
         }
+
+        //funcion para eliminar agentes, en este caso solamente se pasa el valor de eestado 1 a 0
+        public function delete_agente($id_agente){
+            $conexion=parent::obtenerConexion();
+            parent::set_names();
+            $sql = "UPDATE agentes SET estado = 0 WHERE id_agente=?";
+            $sql = $conexion->prepare($sql);
+            $sql->bind_param('i', $id_agente);
+            $sql->execute();
+            return true;
+        }
+
+        //Muestra el total de agentes que hay
+        public function total_agentes(){
+            $conexion=parent::obtenerConexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS total_agentes FROM agentes WHERE estado = 1";
+            $sql = $conexion->prepare($sql);
+            $sql -> execute();
+            return $resultado=$sql->get_result()->fetch_assoc();
+        }
     }
 ?>

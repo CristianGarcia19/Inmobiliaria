@@ -62,7 +62,7 @@ $(document).ready(function () {
                         
                         <td>
                             <button class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#agenteModal" onclick="agenteXid(${agente.id_agente})"><i class="bi bi-pencil-square"></i></button>
-                            <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                            <button class="btn btn-danger" onclick="deleteAgente(${agente.id_agente})"><i class="bi bi-x-circle"></i></button>
                         </td>
                     </tr>
                 `;
@@ -126,3 +126,29 @@ $(document).on("click", "#btnactualizarAgente", function () {
 
 
 
+// Función para eliminar un agente
+function deleteAgente(id_agente) {
+    // Mostrar confirmación al usuario antes de eliminar
+    Swal.fire({
+        title: 'Eliminar registro',
+        text: "¿Desea eliminar el registro?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        // Si el usuario confirma, realizar la solicitud AJAX
+        $.post("/inmoweb/controllers/admagentes.php?opc=delete_agente",{ id_agente: id_agente }, function (data) {
+            // Mostrar mensaje de éxito
+                Swal.fire(
+                    'Eliminado',
+                    'El agente ha sido eliminado correctamente.',
+                    'success'
+                ).then(() => {
+                    // Recargar la tabla de agentes
+                    location.reload();
+                });                    
+            }
+        );
+    });
+}

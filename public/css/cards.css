@@ -1,0 +1,19 @@
+/*cards*/
+.card{
+    max-width: 340px;  
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+
+}
+.card:hover{
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+    transition: all 200ms ease;
+}
+.card-precio{
+    font-size: 22px;
+    font-weight: bold;
+}
+.card-img-top {
+    height: 300px; /* Cambia la altura de la imagen*/
+    object-fit: cover; /* Recorta la imagen para que llene el espacio */
+}

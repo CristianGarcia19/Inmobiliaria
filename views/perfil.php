@@ -28,7 +28,7 @@
                     <h2 class="text-primary">Perfil</h2>
                 </div>
                 <!--diseño personalizado-->
-                <div class="container container-perfil">
+                <div class="card p-4">
                     <!-- Campo oculto para el ID del usuario -->
                     <input type="hidden" id="id_usuarios" value="<?php echo $_SESSION['id_usuarios']; ?>" />
 
@@ -83,7 +83,7 @@
                     </div>
                 
                     <div class="text-center d-grid gap-2 col-5 col-sm-4 col-md-2 mx-auto" name="#btn">
-                        <button class="btn btn-primary my-3" id="btnactualizar">Actualizar</button>
+                        <button class="btn btn-primary mt-3" id="btnactualizar">Actualizar</button>
                     </div>
                     </div>
             </main>

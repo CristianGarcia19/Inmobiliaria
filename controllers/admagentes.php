@@ -40,6 +40,17 @@
                 $resultado = $agentes->actualizarAgente($id_agente, $nombre, $apellidoP, $apellidoM, $sexo, $telefono, $contraseña, $correo );
                 echo json_encode(['success' => $resultado]);
             break;
+
+            case 'delete_agente':
+                $id_agente = $_POST['id_agente'];
+                $delete_agente = $agentes->delete_agente($id_agente);
+                echo json_encode($delete_agente);    
+            break;
+
+            case 'total_agentes':
+                $totalAgentes = $agentes->total_agentes();
+                echo json_encode(['total_agentes' => $totalAgentes['total_agentes']]);
+            break;
         }
     }
 ?>

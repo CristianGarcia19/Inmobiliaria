@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../public/css/bootstrap-custom.css">
     <!--css-->
     <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/dashboard.css">
     <!--favicon-->
     <link rel="shortcut icon" href="../public/img/logodash.png" type="image/x-icon">
     <!--fonts-->
