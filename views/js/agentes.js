@@ -58,7 +58,7 @@ $(document).ready(function () {
                         <td>${agente.sexo}</td>
                         <td>${agente.telefono}</td>
                         <td>${agente.contraseña}</td>
-                        <td>${agente.correo}</td>
+                        <td >${agente.correo}</td>
                         
                         <td>
                             <button class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#agenteModal" onclick="agenteXid(${agente.id_agente})"><i class="bi bi-pencil-square"></i></button>
@@ -75,7 +75,7 @@ $(document).ready(function () {
             let paginacion = '';
             for (let i = 1; i <= data.totalPaginas; i++) {
                 paginacion += `
-                    <a href="#" class="btn btn-primary paginacion-link" data-pagina="${i}">${i}</a>
+                    <a href="#" class="btn btn-dark paginacion-link" data-pagina="${i}">${i}</a>
                 `;
             }
 
@@ -89,6 +89,7 @@ $(document).ready(function () {
         const modal = bootstrap.Modal.getInstance(document.getElementById('agenteModal'));
         modal.hide();
     });
+
 });
 
 $(document).on("click", "#btnactualizarAgente", function () { 
@@ -137,9 +138,11 @@ function deleteAgente(id_agente) {
         confirmButtonText: 'Aceptar',
         cancelButtonText: 'Cancelar'
     }).then((result) => {
-        // Si el usuario confirma, realizar la solicitud AJAX
-        $.post("/inmoweb/controllers/admagentes.php?opc=delete_agente",{ id_agente: id_agente }, function (data) {
-            // Mostrar mensaje de éxito
+        // Solo ejecutar si el usuario confirma
+        if (result.isConfirmed) {
+            // Realizar la solicitud AJAX
+            $.post("/inmoweb/controllers/admagentes.php?opc=delete_agente", { id_agente: id_agente }, function (data) {
+                // Mostrar mensaje de éxito
                 Swal.fire(
                     'Eliminado',
                     'El agente ha sido eliminado correctamente.',
@@ -147,8 +150,61 @@ function deleteAgente(id_agente) {
                 ).then(() => {
                     // Recargar la tabla de agentes
                     location.reload();
-                });                    
-            }
-        );
+                });
+            }).fail(function () {
+                // Manejar errores en la solicitud AJAX
+                Swal.fire(
+                    'Error',
+                    'No se pudo eliminar el agente. Intente nuevamente.',
+                    'error'
+                );
+            });
+        }
     });
 }
+
+//metodo para crear un agente
+// Inicialización
+function init() {
+    // Escucha el evento submit del formulario
+    $("#agente_form").on("submit", function (e) {
+        crear_agente(e);
+    });
+
+    // Limpiar formulario antes de mostrar el modal
+    $("#addAgenteModal").on("show.bs.modal", function () {
+        limpiarFormulario();
+    });
+}
+
+// Función para guardar o editar el agente
+function crear_agente(e) {
+    e.preventDefault(); // Previene el comportamiento predeterminado del formulario
+    // Recoge los datos del formulario
+    var formData = new FormData($("#agente_form")[0]);
+    $.ajax({
+        url: "/inmoweb/controllers/admagentes.php?opc=insert_agente", // Cambia la ruta según corresponda
+        type: "POST",
+        data: formData,
+        contentType: false, // Para enviar archivos o datos complejos
+        processData: false,
+        success: function (data) {
+            Swal.fire(
+                'Creado',
+                'El agente ha sido creado correctamente.',
+                'success'
+            ).then(() => {
+                // Recargar la tabla de agentes
+                location.reload();
+            });    
+        }
+    });
+}
+
+// Función para limpiar el formulario
+function limpiarFormulario() {
+    $("#agente_form")[0].reset(); // Resetea todos los campos del formulario
+}
+
+init();
+

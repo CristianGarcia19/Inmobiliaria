@@ -66,5 +66,16 @@
             $sql -> execute();
             return $resultado=$sql->get_result()->fetch_assoc();
         }
+
+        //funcion para agregar un agente
+        public function insert_agente($nombre, $apellidoP, $apellidoM, $sexo, $telefono, $contraseña, $correo){
+            $conexion=parent::obtenerConexion();
+            parent::set_names();
+            $sql = "INSERT INTO agentes (id_agente, nombre, apellidoP, apellidoM, sexo, telefono, contraseña, correo, estado, id_rol)
+            VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 1, 2)";
+            $sql = $conexion->prepare($sql);
+            $sql->bind_param("sssssss", $nombre, $apellidoP, $apellidoM, $sexo, $telefono, $contraseña, $correo);
+            return $resultado = $sql->execute();
+        }
     }
 ?>

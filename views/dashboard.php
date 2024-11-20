@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer text-center m-0 p-0 ">
-                                    <a href="./admAgentes.php" class="btn btn-1 btn-sm w-100 text-white">Ver mas <i class="bi bi-arrow-right-circle-fill"></i></a>
+                                    <a href="./agentes.php" class="btn btn-1 btn-sm w-100 text-white">Ver mas <i class="bi bi-arrow-right-circle-fill"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -51,6 +51,18 @@
                 $totalAgentes = $agentes->total_agentes();
                 echo json_encode(['total_agentes' => $totalAgentes['total_agentes']]);
             break;
+
+            case 'insert_agente':
+                $nombre = $_POST['nombre'];
+                $apellidoP = $_POST['apellidoP'];
+                $apellidoM = $_POST['apellidoM'];
+                $sexo = $_POST['sexo'];
+                $telefono = $_POST['telefono'];
+                $contraseña = $_POST['contraseña'];
+                $correo = $_POST['correo'];
+                $resultado = $agentes->insert_agente($nombre, $apellidoP, $apellidoM, $sexo, $telefono, $contraseña, $correo );
+                echo json_encode(['success' => $resultado]);
+            break;
         }
     }
 ?>

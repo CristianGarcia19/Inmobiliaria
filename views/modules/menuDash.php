@@ -39,12 +39,13 @@
                             Lista de agentes</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="../views/#.php" class="sidebar-link">
+                            <a href="../views/admAgentes.php" class="sidebar-link">
                             <i class="bi bi-person-add"></i>   
                             Crear agentes</a>
                         </li>
                     </ul>
                 </li>
+                
                 
             </ul>
             <!-- Sidebar Navigation Ends -->

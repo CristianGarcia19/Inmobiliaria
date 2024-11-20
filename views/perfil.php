@@ -24,11 +24,11 @@
             </nav>
             <main class="p-3">
                 <!--Contenido de la pagina-->
-                <div class="text-center">
-                    <h2 class="text-primary">Perfil</h2>
+                <div class="text-center bg-primary rounded-3">
+                    <h4 class="text-white p-2">Perfil</h4>
                 </div>
                 <!--diseño personalizado-->
-                <div class="card p-4">
+                <div class="card p-4 shadow-lg rounded-3">
                     <!-- Campo oculto para el ID del usuario -->
                     <input type="hidden" id="id_usuarios" value="<?php echo $_SESSION['id_usuarios']; ?>" />
 
@@ -83,7 +83,7 @@
                     </div>
                 
                     <div class="text-center d-grid gap-2 col-5 col-sm-4 col-md-2 mx-auto" name="#btn">
-                        <button class="btn btn-primary mt-3" id="btnactualizar">Actualizar</button>
+                        <button class="btn btn-success mt-3" id="btnactualizar">Actualizar</button>
                     </div>
                     </div>
             </main>

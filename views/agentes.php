@@ -24,33 +24,39 @@
             </nav>
             <main class="p-3">
                 <!--Contenido de la pagina-->
-                <div class="text-center">
-                    <h2 class="text-primary py-2">Listado de agentes</h2>
+                <div class="text-center bg-primary rounded-3">
+                    <h4 class="text-white p-2">Listado de agentes</h4>
                 </div>
                 <!--diseño personalizado-->
-                <div class="container">
-                    <table class="table table-striped table-hover " id="tablaAgentes">                        
-                        <thead class="table table-info">
-                            <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido Paterno</th>
-                                <th scope="col">Apellido Materno</th>
-                                <th scope="col">Sexo</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Contraseña</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!--Datos dinamicos-->
-                        </tbody>
-                    </table>
-                    <div id="paginacion" class="text-center mt-3">
-                        <!-- Los enlaces de paginación se mostrarán aquí -->
-                    </div>
-                </div>
+                <div class="table-responsive">
+    <div class="d-flex mb-2">
+        <button id="btncrearAgente" data-bs-toggle="modal" data-bs-target="#addAgenteModal" class="btn btn-success d-flex justify-content-center align-items-center px-3 py-1">Crear agente <i class="bi bi-person-add fs-4 mx-1"></i></button>
+    </div>
+    <table class="table table-striped table-hover table-sm" id="tablaAgentes">
+        <thead class="table-dark rounded-top">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col" class="">Nombre</th>
+                <th scope="col" class="">Apellido Paterno</th>
+                <th scope="col" class="">Apellido Materno</th>
+                <th scope="col" class="">Sexo</th>
+                <th scope="col" class="">Telefono</th>
+                <th scope="col" class="">Contraseña</th>
+                <th scope="col" class="">Correo</th>
+                <th scope="col" class="">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Datos dinámicos -->
+            
+        </tbody>
+    </table>
+    <div id="paginacion" class="text-center mt-3">
+        <!-- Los enlaces de paginación se mostrarán aquí -->
+    </div>
+</div>
+
+
             </main>
         </div>
     </div>
@@ -58,6 +64,7 @@
    
     <?php
         include('../views/modules/js.php');
+        include('../views/modals/modalAddAgente.php');
         include('../views/modals/modalAgentes.php');
     ?>
      <!--js de agentes-->
