@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3308
--- Tiempo de generación: 19-11-2024 a las 01:42:22
+-- Tiempo de generación: 25-11-2024 a las 23:57:25
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -45,8 +45,8 @@ CREATE TABLE `agentes` (
 --
 
 INSERT INTO `agentes` (`id_agente`, `nombre`, `apellidoP`, `apellidoM`, `sexo`, `telefono`, `contraseña`, `correo`, `estado`, `id_rol`) VALUES
-(1, 'Ronald Felip', 'Trujillo', 'Trujillo', 'M', '1234567890', 'ronald', 'ro@hotmail.com', 1, 2),
-(2, 'Laura Valentina', 'Rico', 'Forero', 'F', '3104061451', 'laurita', 'laura@gmail.com', 0, 2);
+(1, 'Laura Valentina', 'Rico', 'Forero', 'F', '123123', 'laura1', 'laura@gmail.com', 1, 2),
+(2, 'Laura Valentina', 'Trujillo', 'sada', 'F', 'asdad', 'asda', 'cristian@gmail.com', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -56,10 +56,20 @@ INSERT INTO `agentes` (`id_agente`, `nombre`, `apellidoP`, `apellidoM`, `sexo`, 
 
 CREATE TABLE `carac_externas` (
   `id_caracteristica_externa` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
-  `estado` tinyint(4) NOT NULL,
-  `id_propiedad` int(11) NOT NULL
+  `nombre` varchar(45) DEFAULT NULL,
+  `estado` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `carac_externas`
+--
+
+INSERT INTO `carac_externas` (`id_caracteristica_externa`, `nombre`, `estado`) VALUES
+(1, 'Piscina', 1),
+(2, 'Jardín', 1),
+(3, 'Terraza', 1),
+(4, 'Acceso pavimentado', 1),
+(5, 'Zona comercial', 1);
 
 -- --------------------------------------------------------
 
@@ -69,10 +79,25 @@ CREATE TABLE `carac_externas` (
 
 CREATE TABLE `carac_internas` (
   `id_caracteristica_interna` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
-  `estado` tinyint(4) NOT NULL,
-  `id_propiedad` int(11) NOT NULL
+  `nombre` varchar(255) NOT NULL,
+  `estado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `carac_internas`
+--
+
+INSERT INTO `carac_internas` (`id_caracteristica_interna`, `nombre`, `estado`) VALUES
+(1, 'Aire acondicionado', 1),
+(2, 'Tv por cable', 1),
+(3, 'Internet', 1),
+(4, 'Servicio de agua', 1),
+(5, 'Servicio de luz', 1),
+(6, 'Servicio de gas', 1),
+(7, 'Lavadero de ropa', 1),
+(8, 'Armarios', 1),
+(9, 'Patio', 1),
+(10, 'Balcón', 1);
 
 -- --------------------------------------------------------
 
@@ -85,6 +110,15 @@ CREATE TABLE `categoria_propiedad` (
   `nombreCategoria` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Volcado de datos para la tabla `categoria_propiedad`
+--
+
+INSERT INTO `categoria_propiedad` (`id_categoria`, `nombreCategoria`) VALUES
+(1, 'Casa'),
+(2, 'Apartamento'),
+(3, 'Lote');
+
 -- --------------------------------------------------------
 
 --
@@ -93,9 +127,15 @@ CREATE TABLE `categoria_propiedad` (
 
 CREATE TABLE `ciudades` (
   `id_ciudad` int(11) NOT NULL,
-  `nombreCiudad` varchar(45) NOT NULL,
-  `id_departamento` int(11) NOT NULL
+  `nombreCiudad` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `ciudades`
+--
+
+INSERT INTO `ciudades` (`id_ciudad`, `nombreCiudad`) VALUES
+(1, 'Girardot');
 
 -- --------------------------------------------------------
 
@@ -111,8 +151,16 @@ CREATE TABLE `clientes` (
   `sexo` enum('M','F') NOT NULL,
   `correo` varchar(45) NOT NULL,
   `telefono` varchar(10) NOT NULL,
-  `id_propiedad` int(11) NOT NULL
+  `observaciones` varchar(255) DEFAULT NULL,
+  `id_propiedad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `nombres`, `apellidoP`, `apellidoM`, `sexo`, `correo`, `telefono`, `observaciones`, `id_propiedad`) VALUES
+(1, 'Luciana', 'Alvarez', 'España', 'F', 'luci@gmail.com', '123', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -124,6 +172,13 @@ CREATE TABLE `departamentos` (
   `id_departamento` int(11) NOT NULL,
   `nombreDepartamento` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `departamentos`
+--
+
+INSERT INTO `departamentos` (`id_departamento`, `nombreDepartamento`) VALUES
+(1, 'Cundinamarca');
 
 -- --------------------------------------------------------
 
@@ -147,6 +202,14 @@ CREATE TABLE `estado` (
   `nombreEstado` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`id_estado`, `nombreEstado`) VALUES
+(1, 'Nuevo'),
+(2, 'Usado');
+
 -- --------------------------------------------------------
 
 --
@@ -169,20 +232,45 @@ CREATE TABLE `propiedades` (
   `id_propiedad` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
-  `estadoPropiedad` enum('Nuevo','Usado') NOT NULL,
-  `baños` int(11) NOT NULL,
-  `habitaciones` int(11) NOT NULL,
-  `estrato` int(11) NOT NULL,
-  `garaje` int(11) NOT NULL,
+  `estado` tinyint(4) NOT NULL,
   `img_principal` varchar(255) NOT NULL,
-  `precio` int(11) NOT NULL,
-  `areaContruida` int(11) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `areaConstruida` float NOT NULL,
   `añoConstruccion` int(11) DEFAULT NULL,
+  `baños` int(11) DEFAULT NULL,
+  `habitaciones` int(11) DEFAULT NULL,
+  `pisos` int(11) DEFAULT NULL,
+  `garaje` int(11) DEFAULT NULL,
+  `estrato` varchar(45) DEFAULT NULL,
   `id_estado` int(11) NOT NULL,
   `id_ciudad` int(11) NOT NULL,
   `id_categoria` int(11) NOT NULL,
   `id_agente` int(11) NOT NULL,
   `id_departamento` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `propiedades_x_carac_externas`
+--
+
+CREATE TABLE `propiedades_x_carac_externas` (
+  `id` int(11) NOT NULL,
+  `id_propiedad` int(11) DEFAULT NULL,
+  `id_caracteristica_externa` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `propiedades_x_carac_internas`
+--
+
+CREATE TABLE `propiedades_x_carac_internas` (
+  `id` int(11) NOT NULL,
+  `id_propiedad` int(11) DEFAULT NULL,
+  `id_caracteristica_interna` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -219,7 +307,7 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id_rol`, `nombreRol`) VALUES
 (1, 'Administrador'),
 (2, 'Agente'),
-(3, 'Cliente');
+(3, 'Clientes');
 
 -- --------------------------------------------------------
 
@@ -245,7 +333,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuarios`, `nombre`, `apellidoP`, `apellidoM`, `sexo`, `correo`, `contraseña`, `telefono`, `estado`, `id_rol`) VALUES
-(1, 'Cristian Camilo', 'Garcia', 'Zarta', 'M', 'cristian@hotmail.com', 'admin', '3104061452', 1, 1);
+(1, 'Cristian Camilo', 'García', 'Zarta', 'M', 'cristian@hotmail.com', 'admin', '3104061452', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -262,15 +350,13 @@ ALTER TABLE `agentes`
 -- Indices de la tabla `carac_externas`
 --
 ALTER TABLE `carac_externas`
-  ADD PRIMARY KEY (`id_caracteristica_externa`),
-  ADD KEY `id_propiedad_idx` (`id_propiedad`);
+  ADD PRIMARY KEY (`id_caracteristica_externa`);
 
 --
 -- Indices de la tabla `carac_internas`
 --
 ALTER TABLE `carac_internas`
-  ADD PRIMARY KEY (`id_caracteristica_interna`),
-  ADD KEY `id_propiedad_idx` (`id_propiedad`);
+  ADD PRIMARY KEY (`id_caracteristica_interna`);
 
 --
 -- Indices de la tabla `categoria_propiedad`
@@ -282,8 +368,7 @@ ALTER TABLE `categoria_propiedad`
 -- Indices de la tabla `ciudades`
 --
 ALTER TABLE `ciudades`
-  ADD PRIMARY KEY (`id_ciudad`),
-  ADD KEY `fk_id_departamento_idx` (`id_departamento`);
+  ADD PRIMARY KEY (`id_ciudad`);
 
 --
 -- Indices de la tabla `clientes`
@@ -330,6 +415,22 @@ ALTER TABLE `propiedades`
   ADD KEY `fk_id_departamento_idx` (`id_departamento`);
 
 --
+-- Indices de la tabla `propiedades_x_carac_externas`
+--
+ALTER TABLE `propiedades_x_carac_externas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_propiedad_idx` (`id_propiedad`),
+  ADD KEY `fk_p_id_caracteristica_externa_idx` (`id_caracteristica_externa`);
+
+--
+-- Indices de la tabla `propiedades_x_carac_internas`
+--
+ALTER TABLE `propiedades_x_carac_internas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_caracteristica_interna_idx` (`id_caracteristica_interna`),
+  ADD KEY `fk_id_propiedad_idx` (`id_propiedad`);
+
+--
 -- Indices de la tabla `propietarios`
 --
 ALTER TABLE `propietarios`
@@ -362,43 +463,61 @@ ALTER TABLE `agentes`
 -- AUTO_INCREMENT de la tabla `carac_externas`
 --
 ALTER TABLE `carac_externas`
-  MODIFY `id_caracteristica_externa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_caracteristica_externa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `carac_internas`
 --
 ALTER TABLE `carac_internas`
-  MODIFY `id_caracteristica_interna` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_caracteristica_interna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria_propiedad`
 --
 ALTER TABLE `categoria_propiedad`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `ciudades`
 --
 ALTER TABLE `ciudades`
-  MODIFY `id_ciudad` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ciudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `departamentos`
 --
 ALTER TABLE `departamentos`
-  MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `propiedades`
 --
 ALTER TABLE `propiedades`
   MODIFY `id_propiedad` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `propiedades_x_carac_externas`
+--
+ALTER TABLE `propiedades_x_carac_externas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `propiedades_x_carac_internas`
+--
+ALTER TABLE `propiedades_x_carac_internas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `propietarios`
@@ -429,24 +548,6 @@ ALTER TABLE `agentes`
   ADD CONSTRAINT `fk_agentes_id_rol` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`);
 
 --
--- Filtros para la tabla `carac_externas`
---
-ALTER TABLE `carac_externas`
-  ADD CONSTRAINT `fk_ce_id_propiedad` FOREIGN KEY (`id_propiedad`) REFERENCES `propiedades` (`id_propiedad`);
-
---
--- Filtros para la tabla `carac_internas`
---
-ALTER TABLE `carac_internas`
-  ADD CONSTRAINT `fk_ci_id_propiedad` FOREIGN KEY (`id_propiedad`) REFERENCES `propiedades` (`id_propiedad`);
-
---
--- Filtros para la tabla `ciudades`
---
-ALTER TABLE `ciudades`
-  ADD CONSTRAINT `fk_c_id_departamento` FOREIGN KEY (`id_departamento`) REFERENCES `departamentos` (`id_departamento`);
-
---
 -- Filtros para la tabla `clientes`
 --
 ALTER TABLE `clientes`
@@ -474,6 +575,20 @@ ALTER TABLE `propiedades`
   ADD CONSTRAINT `fk_id_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categoria_propiedad` (`id_categoria`),
   ADD CONSTRAINT `fk_id_ciudad` FOREIGN KEY (`id_ciudad`) REFERENCES `ciudades` (`id_ciudad`),
   ADD CONSTRAINT `fk_id_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`);
+
+--
+-- Filtros para la tabla `propiedades_x_carac_externas`
+--
+ALTER TABLE `propiedades_x_carac_externas`
+  ADD CONSTRAINT `fk_p_id_caracteristica_externa` FOREIGN KEY (`id_caracteristica_externa`) REFERENCES `carac_externas` (`id_caracteristica_externa`),
+  ADD CONSTRAINT `fk_p_id_propiedad` FOREIGN KEY (`id_propiedad`) REFERENCES `propiedades` (`id_propiedad`);
+
+--
+-- Filtros para la tabla `propiedades_x_carac_internas`
+--
+ALTER TABLE `propiedades_x_carac_internas`
+  ADD CONSTRAINT `fk_pi_caracteristica_interna` FOREIGN KEY (`id_caracteristica_interna`) REFERENCES `carac_internas` (`id_caracteristica_interna`),
+  ADD CONSTRAINT `fk_pi_id_propiedad` FOREIGN KEY (`id_propiedad`) REFERENCES `propiedades` (`id_propiedad`);
 
 --
 -- Filtros para la tabla `usuarios`

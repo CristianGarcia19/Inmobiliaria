@@ -77,7 +77,7 @@ a.sidebar-link {
     position: relative;
     transition: all 0.35s;
     display: block;
-    font-size: 1;
+    font-size: 0.875rem;
 }
 
 a.sidebar-link:hover {
@@ -202,9 +202,6 @@ a.sidebar-link:hover {
     border-radius: 100%;
 }
 
-/*estilos perfil*/
-
-
 
 
 
@@ -216,8 +213,26 @@ table th, table td {
 
 
 
+/* Asegurar que el texto sea visible al hacer hover */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #00BFFF; /* Color de fondo al hacer hover (más oscuro que el primario) */
+    color: #ffffff; /* Texto blanco para contraste */
+}
+
+/* Asegurar estilos iniciales visibles */
+.dropdown-menu .dropdown-item {
+    color: #ffffff; /* Texto blanco */
+    background-color: transparent; /* Fondo transparente por defecto */
+}
 
 
+.title-container {
+    height: 60px; /* Ajusta esta altura según sea necesario */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido del título */
+    justify-content: center; /* Opcional: centra horizontalmente */
+    text-align: center; /* Centra el texto */
+}
 
 
 

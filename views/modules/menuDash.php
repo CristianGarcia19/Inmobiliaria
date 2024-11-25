@@ -45,7 +45,39 @@
                         </li>
                     </ul>
                 </li>
-                
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#propiedades" aria-expanded="false">
+                        <i class="bi bi-building"></i>
+                        <span>Propiedades</span>
+                    </a>
+                    <ul id="propiedades" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="../views/propiedades.php" class="sidebar-link">
+                            <i class="bi bi-buildings"></i>   
+                            Lista de propiedades</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="../views/admPropiedades.php" class="sidebar-link">
+                            <i class="bi bi-building-add"></i> 
+                            Crear propiedad</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#clientes" aria-expanded="false">
+                        <i class="bi bi-person"></i>
+                        <span>Clientes</span>
+                    </a>
+                    <ul id="clientes" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="../views/clientes.php" class="sidebar-link">
+                            <i class="bi bi-list-check"></i> 
+                            Lista de clientes</a>
+                        </li>
+                    </ul>
+                </li>
                 
             </ul>
             <!-- Sidebar Navigation Ends -->

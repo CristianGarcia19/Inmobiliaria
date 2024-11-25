@@ -77,5 +77,16 @@
             $sql->bind_param("sssssss", $nombre, $apellidoP, $apellidoM, $sexo, $telefono, $contraseña, $correo);
             return $resultado = $sql->execute();
         }
+
+        //funcion para mostrar todos los agentes sin limite
+        //funcion para obtener las ciudades
+        public function lista_agentes() {
+            $conexion = parent::obtenerConexion();
+            parent::set_names();
+            $sql = "SELECT * FROM agentes WHERE estado = 1";
+            $sql = $conexion->prepare($sql);
+            $sql->execute();
+            return $resultado = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>
