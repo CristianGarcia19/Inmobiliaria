@@ -30,9 +30,9 @@
                 <!--diseño personalizado-->
                 <div class="table-responsive">
     <div class="d-flex mb-2">
-        <button id="btncrearCliente" data-bs-toggle="modal" data-bs-target="#ClienteModal" class="btn btn-success d-flex justify-content-center align-items-center px-3 py-1">Crear cliente<i class="bi bi-person-add fs-4 mx-1"></i></button>
+        <button id="btncrearCliente" data-bs-toggle="modal" data-bs-target="#insertClienteModal" class="btn btn-success d-flex justify-content-center align-items-center px-3 py-1">Crear cliente<i class="bi bi-person-add fs-4 mx-1"></i></button>
     </div>
-    <table class="table table-striped table-hover table-sm" id="tablaAgentes">
+    <table class="table table-striped table-hover table-sm" id="tablaClientes">
         <thead class="table-dark rounded-top">
             <tr>
                 <th scope="col">Id</th>
@@ -40,9 +40,9 @@
                 <th scope="col" class="">Apellido Paterno</th>
                 <th scope="col" class="">Apellido Materno</th>
                 <th scope="col" class="">Sexo</th>
-                <th scope="col" class="">Telefono</th>
-                <th scope="col" class="">Contraseña</th>
                 <th scope="col" class="">Correo</th>
+                <th scope="col" class="">Telefono</th>
+                <th scope="col" class="">Observaciones</th>
                 <th scope="col" class="">Acciones</th>
             </tr>
         </thead>
@@ -64,7 +64,7 @@
    
     <?php
         include('../views/modules/js.php');
-        include('../views/modals/modalAddCliente.php');
+        include('../views/modals/modalClientes.php');
     ?>
      <!--js de agentes-->
      <script src="../views/js/clientes.js"></script>

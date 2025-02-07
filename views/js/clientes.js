@@ -2,8 +2,13 @@
 // Inicialización
 function init() {
     // Escucha el evento submit del formulario
-    $("#cliente_form").on("submit", function (e) {
+    $("#formularioCliente").on("submit", function (e) {
         crear_cliente(e);
+    });
+
+    // Escucha el evento submit del formulario
+    $("#contacto_form").on("submit", function (o) {
+        formulario_contacto(o);
     });
 
     // Limpiar formulario antes de mostrar el modal
@@ -16,7 +21,7 @@ function init() {
 function crear_cliente(e) {
     e.preventDefault(); // Previene el comportamiento predeterminado del formulario
     // Recoge los datos del formulario
-    var formData = new FormData($("#cliente_form")[0]);
+    var formData = new FormData($("#formularioCliente")[0]);
     $.ajax({
         url: "/inmoweb/controllers/clientes.php?opc=insert_cliente", // Cambia la ruta según corresponda
         type: "POST",
@@ -36,12 +41,6 @@ function crear_cliente(e) {
     });
 }
 
-function init() {
-    // Escucha el evento submit del formulario
-    $("#contacto_form").on("submit", function (o) {
-        formulario_contacto(o);
-    });
-}
 
 // Función para guardar o editar el cliente
 function formulario_contacto(o) {
@@ -72,15 +71,16 @@ function formulario_contacto(o) {
 
 $(document).ready(function () {
         // Cargar los agentes de la primera página al inicio
+    cargarClientesDash(1);
     cargarClientes(1);
 
     // Cargar agentes según la página seleccionada
     $(document).on('click', '.paginacion-link', function (e) {
         e.preventDefault();
         var pagina = $(this).data('pagina'); // Obtener el número de página
-        cargarClientes(pagina); // Cargar los datos para esa página
+        cargarClientesDash(pagina); // Cargar los datos para esa página
     });
-    function cargarClientes(pagina) {
+    function cargarClientesDash(pagina) {
         $.get("/inmoweb/controllers/clientes.php?opc=mostrarClientes&pagina=" + pagina, function (data) {
             data = JSON.parse(data);
 
@@ -102,7 +102,7 @@ $(document).ready(function () {
             });
 
             // Insertar las filas en el cuerpo de la tabla
-            $("#tablaAgentesDash tbody").html(filas);
+            $("#tablaClientesDash tbody").html(filas);
 
             // Generar los enlaces de paginación
             let paginacion = '';
@@ -116,7 +116,47 @@ $(document).ready(function () {
             $("#paginacion").html(paginacion);
         });
     }
-    
+    function cargarClientes(pagina) {
+        $.get("/inmoweb/controllers/clientes.php?opc=mostrarClientes&pagina=" + pagina, function (data) {
+            data = JSON.parse(data);
+
+            // Construir las filas de la tabla
+            let filas = '';
+            data.clientes.forEach(function (cliente) {
+                filas += `
+                    <tr>
+                        <th scope="row">${cliente.id_cliente}</th>
+                        <td>${cliente.nombres}</td>
+                        <td>${cliente.apellidoP}</td>
+                        <td>${cliente.apellidoM}</td>
+                        <td>${cliente.sexo}</td>
+                        <td>${cliente.correo}</td>
+                        <td>${cliente.telefono}</td>
+                        <td>${cliente.observaciones}</td>
+                        <td>
+                            <button class="btn btn-info text-white"><i class="bi bi-eye"></i></button>
+                            <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            // Insertar las filas en el cuerpo de la tabla
+            $("#tablaClientes tbody").html(filas);
+
+            // Generar los enlaces de paginación
+            let paginacion = '';
+            for (let i = 1; i <= data.totalPaginas; i++) {
+                paginacion += `
+                    <a href="#" class="btn btn-dark paginacion-link" data-pagina="${i}">${i}</a>
+                `;
+            }
+
+            // Insertar los enlaces de paginación debajo de la tabla
+            $("#paginacion").html(paginacion);
+        });
+    }
+    init();
 });
 
-init();
+

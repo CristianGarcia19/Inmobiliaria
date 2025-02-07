@@ -152,7 +152,7 @@
                     </div>
                     <div class="container bg-body-secondary rounded">
                         <h2 class="text-center">Contenido para posibles clientes</h2>
-                        <table class="table table-striped table-hover table-sm" id="tablaAgentesDash">
+                        <table class="table table-striped table-hover table-sm" id="tablaClientesDash">
                             <thead class="table-dark rounded-top">
                                 <tr>
                                     <th scope="col">Id</th>
