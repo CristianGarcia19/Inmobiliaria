@@ -1,3 +1,7 @@
+<?php
+    require_once(__DIR__ .'/controllers/propiedades.php');
+    $propiedades = $propiedad->listar_propiedades();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +18,10 @@
     <link rel="stylesheet" href="./public/css/cards.css">
     <!--favicon-->
     <link rel="shortcut icon" href="./public/img/logodash.png" type="image/x-icon">
-    <!--fonts-->
+    <!--fuente nueva-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -47,7 +51,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Inmuebles</a>
+                        <a class="nav-link text-white" href="views/inmuebles.php">Inmuebles</a>
                     </li>
                     
                     <li class="nav-item">
@@ -63,38 +67,8 @@
     <div id="carouselExample" class="carousel slide position-relative" data-bs-ride="carousel">
         <!-- Barra de búsqueda en el centro -->
         <div class="search-bar-container py-5">
-            <h1 class="text-white text-center mb-5">Conéctate con tu nuevo espacio, encuentra tu hogar ideal</h1>
-            <form class="row g-2 d-flex justify-content-center align-items-center">
-                <div class="col-md-3">
-                    <select class="form-select" aria-label="Tipo de Inmueble">
-                        <option selected>Tipo de Inmueble</option>
-                        <option value="1">Casa</option>
-                        <option value="2">Apartamento</option>
-                        <option value="3">Oficina</option>
-                        <!-- Añadir más opciones según sea necesario -->
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select" aria-label="Tipo de Negocio">
-                        <option selected>Tipo de Negocio</option>
-                        <option value="1">Venta</option>
-                        <option value="2">Arriendo</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select" aria-label="Ciudad">
-                        <option selected>Ciudad</option>
-                        <option value="1">Girardot</option>
-                        <option value="2">Bogotá</option>
-                        <option value="3">Medellín</option>
-                        
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-info w-100 text-white" type="submit">Buscar <i class="bi bi-search"></i></button>
-                    
-                </div>
-            </form>
+            <h1 class="text-white text-center">Conéctate con tu nuevo espacio, encuentra tu hogar ideal</h1>
+            
         </div>
     
         <div class="carousel-inner">
@@ -104,126 +78,52 @@
     </div>
     
     
+    <
+
     <!--carousel inmuebles-->
     <div class="container">
         <div class="text-center my-5 text-primary">
             <h2 class="fw-bold">Inmuebles</h2>
         </div>
-        <div id="propertyCarousel" class="carousel slide  px-5" data-bs-ride="carousel" data-bs-interval="5000">
-            <div class="carousel-inner d-flex py-3">
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col-4">
-                            <a href="#" class="card">
-                                <img src="./public/img/casas/casa1.jpg" class="card-img-top img-fluid" alt="Propiedad 1">
-                                <div class="card-body">
-                                    <p class="text-muted">En venta</p>
-                                    <h5 class="card-title">Rosa blanca</h5>
-                                    <p class="card-precio m-0">$245.000.000</p>
-                                    <span class="d-flex align-items-center"><i class="bi bi-geo-alt fs-3 me-1"></i>Ubicación: Medellín</span>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bed fs-3 me-1'></i> 4</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-car fs-3 me-1'></i> 3</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bath fs-3 me-1'></i> 3</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-shape-triangle fs-3 me-1'></i> 200 m²</span>
+        <div id="propertyCarousel" class="carousel slide px-5" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner py-3">
+                <?php
+                $total = count($propiedades);
+                $chunks = array_chunk($propiedades, 3); // Agrupar de 3 en 3
+
+                foreach ($chunks as $index => $grupo) {
+                    echo '<div class="carousel-item ' . ($index === 0 ? 'active' : '') . '">';
+                    echo '<div class="row">';
+                    foreach ($grupo as $prop) {
+                        // Ruta imagen principal
+                        $imgPath = "./public/img/{$prop['img_principal']}";
+                        $precio = number_format($prop['precio'], 0, ',', '.');
+                        echo "
+                        <div class='col-4'>
+                            <a href='views/detalle_propiedad.php?id_propiedad={$prop['id_propiedad']}' class='card'>
+                                <img src='{$imgPath}' class='card-img-top img-fluid' alt='Propiedad {$prop['id_propiedad']}'>
+                                <div class='card-body'>
+                                    <p class='text-muted'>{$prop['estado_comercial']}</p>
+                                    <p class='fw-bold'>{$prop['nombre']}</p>
+                                    <p class='card-precio m-0'>\${$precio}</p>
+                                    <span class='d-flex align-items-center'><i class='bi bi-geo-alt fs-3 me-1'></i>Ubicación: {$prop['ciudad']}</span>
+                                    <div class='d-flex justify-content-between align-items-center mt-2'>
+                                        <span class='d-flex align-items-center gap-1'><i class='bx bx-bed fs-3 me-1'></i> {$prop['habitaciones']}</span>
+                                        <span class='d-flex align-items-center gap-1'><i class='bx bx-car fs-3 me-1'></i> {$prop['garaje']}</span>
+                                        <span class='d-flex align-items-center gap-1'><i class='bx bx-bath fs-3 me-1'></i> {$prop['baños']}</span>
+                                        <span class='d-flex align-items-center gap-1'><i class='bx bx-shape-triangle fs-3 me-1'></i> {$prop['areaConstruida']} m²</span>
                                     </div>
                                 </div>
                             </a>
-                        </div>
-                        <div class="col-4">
-                            <a href="#" class="card">
-                                <img src="./public/img/casas/casa2.jpg" class="card-img-top img-fluid" alt="Propiedad 2">
-                                <div class="card-body">
-                                    <p class="text-muted">En venta</p>
-                                    <h5 class="card-title">Casa Amarilla</h5>
-                                    <p class="card-precio m-0">$300.000.000</p>
-                                    <span class="d-flex align-items-center"><i class="bi bi-geo-alt fs-3 me-1"></i>Ubicación: Bogotá</span>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bed fs-3 me-1'></i> 5</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-car fs-3 me-1'></i> 2</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bath fs-3 me-1'></i> 4</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-shape-triangle fs-3 me-1'></i> 250 m²</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-4">
-                            <a href="#" class="card">
-                                <img src="./public/img/casas/casa3.jpg" class="card-img-top img-fluid" alt="Propiedad 3">
-                                <div class="card-body">
-                                    <p class="text-muted">En venta</p>
-                                    <h5 class="card-title">Casa Verde</h5>
-                                    <p class="card-precio m-0">$175.000.000</p>
-                                    <span class="d-flex align-items-center"><i class="bi bi-geo-alt fs-3 me-1"></i>Ubicación: Cali</span>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bed fs-3 me-1'></i> 3</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-car fs-3 me-1'></i> 1</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bath fs-3 me-1'></i> 2</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-shape-triangle fs-3 me-1'></i> 150 m²</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-4">
-                            <a href="#" class="card">
-                                <img src="./public/img/casas/casa1.jpg" class="card-img-top img-fluid" alt="Propiedad 4">
-                                <div class="card-body">
-                                    <p class="text-muted">En venta</p>
-                                    <h5 class="card-title">Casa Azul</h5>
-                                    <p class="card-precio m-0">$200.000.000</p>
-                                    <span class="d-flex align-items-center"><i class="bi bi-geo-alt fs-3 me-1"></i>Ubicación: Barranquilla</span>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bed fs-3 me-1'></i> 4</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-car fs-3 me-1'></i> 2</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bath fs-3 me-1'></i> 3</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-shape-triangle fs-3 me-1'></i> 180 m²</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-4">
-                            <a href="#" class="card">
-                                <img src="./public/img/casas/casa2.jpg" class="card-img-top img-fluid" alt="Propiedad 5">
-                                <div class="card-body">
-                                    <p class="text-muted">En venta</p>
-                                    <h5 class="card-title">Casa Naranja</h5>
-                                    <p class="card-precio m-0">$260.000.000</p>
-                                    <span class="d-flex align-items-center"><i class="bi bi-geo-alt fs-3 me-1"></i>Ubicación: Cartagena</span>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bed fs-3 me-1'></i> 5</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-car fs-3 me-1'></i> 2</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bath fs-3 me-1'></i> 4</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-shape-triangle fs-3 me-1'></i> 200 m²</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-4">
-                            <a href="#" class="card">
-                                <img src="./public/img/casas/casa4.jpeg" class="card-img-top img-fluid" alt="Propiedad 6">
-                                <div class="card-body">
-                                    <p class="text-muted">En venta</p>
-                                    <h5 class="card-title">Casa Lila</h5>
-                                    <p class="card-precio m-0">$150.000.000</p>
-                                    <span class="d-flex align-items-center"><i class="bi bi-geo-alt fs-3 me-1"></i>Ubicación: Bucaramanga</span>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bed fs-3 me-1'></i> 3</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-car fs-3 me-1'></i> 1</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-bath fs-3 me-1'></i> 2</span>
-                                        <span class="d-flex align-items-center gap-1"><i class='bx bx-shape-triangle fs-3 me-1'></i> 120 m²</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                        </div>";
+                    }
+                    echo '</div></div>';
+                }
+                ?>
             </div>
-            
-            <button class="carousel-control-prev align-items-center" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
                 <i class="bi bi-chevron-left icon-flecha d-flex align-items-center" aria-hidden="true"></i>
                 <span class="visually-hidden">Previous</span>
             </button>
@@ -233,10 +133,12 @@
             </button>
         </div>
         <div class="text-center mt-3">
-            <button class="btn btn-info text-white">Ver todas las propiedades</button>
+            <a href="./views/inmuebles.php" class="btn btn-info text-white">Ver todas las propiedades</a>
         </div>
     </div>
     <!--fin carousel inmueble-->
+
+    
 
     
 
@@ -311,7 +213,7 @@
                 
             </div>
             <div class="row text-center">
-                <p>&copy; 2024 Inmoweb. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Inmoweb. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>

@@ -6,7 +6,7 @@
         private $usuario = "root";
         private $contraseña = "";
         private $base_datos = "inmobiliaria";
-        private $port = "3308";
+        private $port = "3309";
         private $conexion;
     
         public function __construct() {

@@ -30,19 +30,19 @@
                 <!--diseño personalizado-->
                 <div class="table-responsive">
     <div class="d-flex mb-2">
-        <button id="btncrearPropiedad" data-bs-toggle="modal" data-bs-target="#addPropiedadModal" class="btn btn-success d-flex justify-content-center align-items-center px-3 py-1">Crear propiedad<i class="bi bi-building-add fs-4"></i></button>
+        <a href="./admPropiedades.php" class="btn btn-success d-flex justify-content-center align-items-center px-3 py-1">Crear propiedad<i class="bi bi-building-add fs-4"></i></a>
     </div>
-    <table class="table table-striped table-hover table-sm" id="tablaAgentes">
+    <table class="table table-striped table-hover table-sm" id="tablaPropiedades">
         <thead class="table-dark rounded-top">
             <tr>
                 <th scope="col">Id</th>
+                <th scope="col" class="">Foto principal</th>
                 <th scope="col" class="">Nombre</th>
-                <th scope="col" class="">Apellido Paterno</th>
-                <th scope="col" class="">Apellido Materno</th>
-                <th scope="col" class="">Sexo</th>
-                <th scope="col" class="">Telefono</th>
-                <th scope="col" class="">Contraseña</th>
-                <th scope="col" class="">Correo</th>
+                <th scope="col" class="">Categoria</th>
+                <th scope="col" class="">Estado comercial</th>
+                <th scope="col" class="">Precio</th>
+                <th scope="col" class="">Area construida</th>
+                <th scope="col" class="">Ubicación</th>
                 <th scope="col" class="">Acciones</th>
             </tr>
         </thead>
@@ -64,10 +64,10 @@
    
     <?php
         include('../views/modules/js.php');
+        include('../views/modals/modalPropiedades.php');
         include('../views/modals/modalAddAgente.php');
-        include('../views/modals/modalAgentes.php');
     ?>
-     <!--js de agentes-->
-     <script src="../views/js/agentes.js"></script>
+     <!--js de propiedades-->
+     <script src="../views/js/propiedades.js"></script>
 </body>
 </html>

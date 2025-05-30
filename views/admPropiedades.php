@@ -53,6 +53,11 @@
                                         <input type="file" class="form-control" id="img_principal" name="img_principal" required>
                                     </div>
 
+                                    <!-- Imagenes de detalle -->
+                                    <div class="col-12 col-md-12 mb-3">
+                                        <label for="img_detalle" class="form-label fw-bold">Imagenes de la propiedad</label>
+                                        <input type="file" class="form-control" id="img_detalle" name="img_detalle[]" required multiple>
+                                    </div>
                                     
 
                                     <!-- Precio -->
@@ -103,9 +108,9 @@
                                         <input type="number" class="form-control" id="estrato" name="estrato" required placeholder="Estrato">
                                     </div>
 
-                                    <!-- Estado de la propiedad -->
+                                    <!-- Estado comercial de la propiedad -->
                                     <div class="col-12 col-md-4 col-sm-6 mb-3">
-                                        <label for="estadoPropiedad" class="form-label fw-bold">Estado de la propiedad</label>
+                                        <label for="estadoPropiedad" class="form-label fw-bold">Estado comercial</label>
                                         <select class="form-select" id="estadoPropiedad" name="estadoPropiedad" required>
                                             <?php foreach ($estado_propiedad as $estado): ?>
                                                 <option value="<?= $estado['id_estado'] ?>"><?= $estado['nombreEstado'] ?></option>
@@ -149,7 +154,7 @@
                                         <select class="form-select" id="id_agente" name="id_agente" required>
                                             <!-- Llenar con los agentes disponibles -->
                                             <?php foreach ($lista_agentes as $agentes): ?>
-                                                <option value="<?= $agentes['id_agente'] ?>"><?= $agentes['nombre'] ?></option>
+                                                <option value="<?= $agentes['id_agente'] ?>"><?= $agentes['nombre'].' '.$agentes['apellidoP'] ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -197,7 +202,7 @@
         include('../views/modules/js.php');
         include('../views/modals/modalAddAgente.php');
     ?>
-     <!--js de agentes-->
+     <!--js de propiedades-->
      <script src="../views/js/propiedades.js"></script>
 </body>
 </html>

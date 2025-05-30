@@ -79,7 +79,7 @@
                             <div class="card bg-card-2 text-white">
                                 <div class="card-body d-flex align-items-center">
                                     <div>
-                                        <h2 class="card-tittle">#</h2>
+                                        <h2 class="card-tittle" id="total_casas_en_venta">#</h2>
                                         <p class="card-text">Casas en venta</p>
                                     </div>
                                     <div class="ms-auto">
@@ -96,7 +96,7 @@
                             <div class="card text-white bg-card-2">
                                 <div class="card-body d-flex align-items-center">
                                     <div>
-                                        <h2 class="card-tittle">#</h2>
+                                        <h2 class="card-tittle" id="total_casas_en_arriendo">#</h2>
                                         <p class="card-text">Casas en arriendo</p>
                                     </div>
                                     <div class="ms-auto">
@@ -113,7 +113,7 @@
                             <div class="card bg-card-3">
                                 <div class="card-body d-flex align-items-center">
                                     <div>
-                                        <h2 class="card-tittle">#</h2>
+                                        <h2 class="card-tittle" id="total_apartamentos_en_venta">#</h2>
                                         <p class="card-text">Apartamentos en venta</p>
                                     </div>
                                     <div class="ms-auto">
@@ -130,7 +130,7 @@
                             <div class="card bg-card-3">
                                 <div class="card-body d-flex align-items-center">
                                     <div>
-                                        <h2 class="card-tittle">#</h2>
+                                        <h2 class="card-tittle" id="total_apartamentos_en_arriendo">#</h2>
                                         <p class="card-text">Apartamentos en arriendo</p>
                                     </div>
                                     <div class="ms-auto">
@@ -147,11 +147,9 @@
                 </div>
 
                 <div class="container d-flex">
-                    <div class="container">
-                        <h2>Contenido para clientes interesados en las casas</h2>
-                    </div>
+                    
                     <div class="container bg-body-secondary rounded">
-                        <h2 class="text-center">Contenido para posibles clientes</h2>
+                        <h2 class="text-center">Personas interesadas en contacto</h2>
                         <table class="table table-striped table-hover table-sm" id="tablaClientesDash">
                             <thead class="table-dark rounded-top">
                                 <tr>

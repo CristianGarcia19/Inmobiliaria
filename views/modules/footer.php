@@ -19,7 +19,7 @@
                 
             </div>
             <div class="row text-center">
-                <p>&copy; 2024 Inmoweb. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Inmoweb. Todos los derechos reservados.</p>
             </div>
         </div>
 </footer>

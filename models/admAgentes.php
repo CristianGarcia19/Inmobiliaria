@@ -1,5 +1,5 @@
 <?php
-    require_once('../config/Conexion.php');
+    require_once(__DIR__.'/../config/Conexion.php');
 
     class Agentes extends Conectar{
         public function mostrarAgentes($pagina, $registros_por_pagina) {

@@ -1,0 +1,6 @@
+.img_portada_admin{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}

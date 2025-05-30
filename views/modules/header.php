@@ -24,7 +24,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Inmuebles</a>
+                        <a class="nav-link text-white" href="../views/inmuebles.php">Inmuebles</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white me-2" href="../views/contacto.php">Contacto</a>
